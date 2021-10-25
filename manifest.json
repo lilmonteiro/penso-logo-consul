@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Penso, logo Consul",
+  "version": "1.0",
+  "description": "Essa extensão te ajuda a evitar compras por impulso.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.mercadolivre.com.br/*"],
+      "css": ["main.css"],
+      "js": ["main.js"]
+    },
+    {
+      "matches": ["https://produto.mercadolivre.com.br/*"],
+      "css": ["main.css"],
+      "js": ["main.js"]
+    }
+  ]
+}
