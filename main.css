@@ -1,10 +1,16 @@
-/* html, body, main {
-    background-color: blueviolet !important;
-} */
-
 .injecao{
-    background-color: brown;
+    background-color: #8bba34 ;
     z-index: 3 !important;
     width: 800px;
     position: absolute;
+    width: 100%;
+    height: 20%;
+    z-index: 1 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    border-radius: 25px;
 }

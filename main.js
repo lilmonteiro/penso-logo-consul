@@ -1,45 +1,45 @@
 let start = function() {
     var botoesContainer = document.querySelector(".ui-pdp-container__row--main-actions");
-    // var botoesContainer = document.querySelector(".ui-pdp--sticky-wrapper");
-    // console.log(botoesContainer);
-    // let TopLeft = getElementTopLeft(".ui-pdp-container__row--main-actions");
-    // console.log(TopLeft.top + ', ' + TopLeft.left);
-
-    // var injecao = document.body.innerHTML += /*html*/ `
-    // <div class="injecao">Oi eu fui injetado</div>
-    // `;
 
     var injecao = document.createElement("div");
+    var frase = document.createElement("p");
+    var countDown = document.createElement("p");
     injecao.classList.add("injecao");
-    injecao.innerHTML = "teste";
-
-
-    injecao.style.width = "200px";
-    // injecao.style.position = "absolute !important";
-    injecao.style.zIndex = "1 !important";
+    injecao.appendChild(frase)
+    injecao.appendChild(countDown)
+    frase.innerHTML = "Pense e Consul!";
 
     var comprarAgoraBtn = document.getElementsByTagName("button")[3];
-    comprarAgoraBtn.setAttribute("id", "botao-comprar")
-    console.log(document.getElementById("botao-comprar"))
+    var addToCart = document.getElementsByTagName("button")[4];
+    var comprarMercadoCredito = document.getElementsByTagName("a")[48];
 
-    setTimeout(function() { comprarAgoraBtn.appendChild(injecao); }, 500);
+    comprarAgoraBtn.disabled = true;
+    addToCart.disabled = true;
+    comprarMercadoCredito.style.visibility = "hidden";
+
+
+    botoesContainer.addEventListener("click", function(e) {
+        botoesContainer.appendChild(injecao);
+        console.log("clicado")
+
+        var timeleft = 5;
+        var regressiveCount = setInterval(function() {
+            if (timeleft <= 0) {
+                clearInterval(regressiveCount);
+            } else {
+                countDown.innerHTML = timeleft + " segundo(s)";
+            }
+            timeleft -= 1;
+        }, 1000);
+
+        setTimeout(() => {
+            comprarAgoraBtn.disabled = false;
+            addToCart.disabled = false;
+            comprarMercadoCredito.style.visibility = "visible";
+            botoesContainer.removeChild(injecao);
+        }, 5500);
+    })
 
 }
-
-function getElementTopLeft(id) {
-
-    var ele = document.querySelector(id);
-    var top = 0;
-    var left = 0;
-
-    while (ele.tagName != "BODY") {
-        top += ele.offsetTop;
-        left += ele.offsetLeft;
-        ele = ele.offsetParent;
-    }
-    return { top: top, left: left };
-}
-
-
 
 window.addEventListener("load", start())
