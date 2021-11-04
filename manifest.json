@@ -1,16 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Penso, logo Consul",
-  "version": "1.0",
-  "description": "Essa extensão te ajuda a evitar compras por impulso.",
+  "name": "Para e Pensa",
+  "version": "1.1",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/*.png", "fonts/*.ttf"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "description": "Reconhece quando uma compra será efetuada e pausa a página por 30 segundos, evitando aquele arrependimento de uma compra impulsiva.",
+  "icons": { "16": "icon-32.png" },
   "content_scripts": [
     {
-      "matches": ["https://www.mercadolivre.com.br/*"],
-      "css": ["main.css"],
-      "js": ["main.js"]
-    },
-    {
-      "matches": ["https://produto.mercadolivre.com.br/*"],
+      "matches": [
+        "https://www.mercadolivre.com.br/*",
+        "https://produto.mercadolivre.com.br/*"
+      ],
       "css": ["main.css"],
       "js": ["main.js"]
     }

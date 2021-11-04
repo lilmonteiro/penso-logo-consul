@@ -1,45 +1,67 @@
-let start = function() {
-    var botoesContainer = document.querySelector(".ui-pdp-container__row--main-actions");
+let stickers = [
+    "images/para.png",
+    "images/sera.png",
+    "images/respira-e-conta.png",
+    "images/1.png",
+    "images/2.png",
+    "images/3.png",
+    "images/joinha.png",
+    "images/pensou.png",
+    "images/tem certeza.png",
+    "images/bem-pensado.png",
+    "images/voce-realmente-quer.png",
+    "images/ultima-chance.png"
+]
 
-    var injecao = document.createElement("div");
-    var frase = document.createElement("p");
-    var countDown = document.createElement("p");
-    injecao.classList.add("injecao");
-    injecao.appendChild(frase)
-    injecao.appendChild(countDown)
-    frase.innerHTML = "Pense e Consul!";
+let pageBackground = document.createElement("div");
+let lightboxContainer = document.createElement("div");
+let lightbox = document.createElement("div");
+pageBackground.classList.add("pageBackground");
+lightboxContainer.classList.add("lightboxContainer");
+lightbox.classList.add("lightbox");
 
-    var comprarAgoraBtn = document.getElementsByTagName("button")[3];
-    var addToCart = document.getElementsByTagName("button")[4];
-    var comprarMercadoCredito = document.getElementsByTagName("a")[48];
+let eRef = document.getElementById("nav-header-menu-switch");
 
-    comprarAgoraBtn.disabled = true;
-    addToCart.disabled = true;
-    comprarMercadoCredito.style.visibility = "hidden";
+document.body.appendChild(pageBackground);
+document.body.appendChild(lightboxContainer);
+lightboxContainer.appendChild(lightbox);
+
+document.body.insertBefore(pageBackground, eRef);
+document.body.insertBefore(lightboxContainer, pageBackground);
+
+lightbox.innerHTML = /*html*/ `
+    <div class="header"> 
+        <img class="icon-black-friday" src=${chrome.runtime.getURL("images/black-friday.png")}> 
+        <p> 2021</p>
+    </div>
+
+    <div class="timer"> 
+        <p>
+            00:03
+        </p> 
+    </div>
+
+    <div class="footer">
+        <div>
+        <p class="apelo">Para</p> 
+        <p class="apelo">E</p> 
+        <p class="apelo">Pensa</p> 
+        </div>
+        <img src=${chrome.runtime.getURL("images/logo-consul.png")}>
+    </div>
+`
 
 
-    botoesContainer.addEventListener("click", function(e) {
-        botoesContainer.appendChild(injecao);
-        console.log("clicado")
+insertSticker(chrome.runtime.getURL("images/para.png"), "sticker pare");
 
-        var timeleft = 5;
-        var regressiveCount = setInterval(function() {
-            if (timeleft <= 0) {
-                clearInterval(regressiveCount);
-            } else {
-                countDown.innerHTML = timeleft + " segundo(s)";
-            }
-            timeleft -= 1;
-        }, 1000);
+insertSticker(chrome.runtime.getURL("images/sera.png"), "sticker sera");
 
-        setTimeout(() => {
-            comprarAgoraBtn.disabled = false;
-            addToCart.disabled = false;
-            comprarMercadoCredito.style.visibility = "visible";
-            botoesContainer.removeChild(injecao);
-        }, 5500);
-    })
+insertSticker(chrome.runtime.getURL("images/respira-e-conta.png"), "sticker respira");
 
+
+function insertSticker(path, className) {
+    let imgTag = document.createElement("img");
+    imgTag.setAttribute("src", path);
+    imgTag.setAttribute("class", className);
+    lightbox.appendChild(imgTag)
 }
-
-window.addEventListener("load", start())
