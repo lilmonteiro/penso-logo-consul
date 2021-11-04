@@ -32,6 +32,7 @@
 }
 
 .lightbox {
+  display: flex;
   flex-direction: column;
   align-self: center;
   position: absolute;
@@ -53,6 +54,9 @@
   height: 15%;
   padding-bottom: 15px;
   color: #9aca3c;
+  font-family: ConsulLight;
+  font-size: 1.25em;
+  z-index: 1000;
 }
 
 .header img {
@@ -63,10 +67,12 @@
   font-size: 10vw;
   line-height: 1em;
   align-self: end;
+  z-index: 1001;
 }
 
 .timer p {
   font-family: ConsulBold;
+  padding-top: 15px;
 }
 
 .footer {
@@ -75,6 +81,7 @@
   justify-content: space-between;
   align-items: end;
   height: 50%;
+  z-index: 1001;
 }
 
 .footer img {
@@ -98,9 +105,10 @@
 
 .sticker {
   position: absolute;
+  z-index: 1000;
 }
 
-.pare {
+.para {
   top: 50%;
   left: 50%;
   width: 8vw;
@@ -119,4 +127,67 @@
   right: 20%;
   width: 11vw;
   max-width: 200px;
+}
+
+.um{
+  top: 10%;
+  left: 35%;
+  width: 5vw;
+  max-width: 100px;
+}
+
+.dois{
+  bottom: 10%;
+  left: 40%;
+  width: 8vw;
+  max-width: 250px;
+}
+
+.tres{
+  bottom: 5%;
+  right: 28%;
+  width: 9vw;
+  max-width: 250px;
+}
+
+.joinha{
+  top: 5%;
+  right: 15%;
+  width: 5vw;
+  max-width: 260px;
+}
+
+.pensou{
+  bottom: 15%;
+  left: 10%;
+  width: 20vw;
+  max-width: 400px;
+}
+
+.certeza{
+  bottom: 20%;
+  right: 0;
+  width: 15vw;
+  max-width: 400px;
+}
+
+.pensado{
+  bottom: 20%;
+  right: 30%;
+  width: 20vw;
+  max-width: 400px;
+}
+
+.realmente{
+  top: 35%;
+  left: 30%;
+  width: 20vw;
+  max-width: 300px;
+}
+
+.chance{
+  top: 5%;
+  left: 15%;
+  width: 10vw;
+  max-width: 220px;
 }

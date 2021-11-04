@@ -7,10 +7,25 @@ let stickers = [
     "images/3.png",
     "images/joinha.png",
     "images/pensou.png",
-    "images/tem certeza.png",
+    "images/tem-certeza.png",
     "images/bem-pensado.png",
     "images/voce-realmente-quer.png",
     "images/ultima-chance.png"
+]
+
+let classes = [
+    "para",
+    "sera",
+    "respira",
+    "um",
+    "dois",
+    "tres",
+    "joinha",
+    "pensou",
+    "certeza",
+    "pensado",
+    "realmente",
+    "chance"
 ]
 
 let pageBackground = document.createElement("div");
@@ -52,11 +67,19 @@ lightbox.innerHTML = /*html*/ `
 `
 
 
-insertSticker(chrome.runtime.getURL("images/para.png"), "sticker pare");
-
-insertSticker(chrome.runtime.getURL("images/sera.png"), "sticker sera");
-
-insertSticker(chrome.runtime.getURL("images/respira-e-conta.png"), "sticker respira");
+// insertSticker(chrome.runtime.getURL("images/para.png"), "sticker pare");
+// insertSticker(chrome.runtime.getURL("images/sera.png"), "sticker sera");
+// insertSticker(chrome.runtime.getURL("images/respira-e-conta.png"), "sticker respira");
+// insertSticker(chrome.runtime.getURL("images/1.png"), "sticker um");
+// insertSticker(chrome.runtime.getURL("images/2.png"), "sticker dois");
+// insertSticker(chrome.runtime.getURL("images/3.png"), "sticker tres");
+// insertSticker(chrome.runtime.getURL("images/joinha.png"), "sticker joinha");
+// insertSticker(chrome.runtime.getURL("images/pensou.png"), "sticker pensou");
+// insertSticker(chrome.runtime.getURL("images/tem-certeza.png"), "sticker certeza");
+// insertSticker(chrome.runtime.getURL("images/bem-pensado.png"), "sticker pensado");
+// insertSticker(chrome.runtime.getURL("images/bem-pensado.png"), "sticker pensado");
+// insertSticker(chrome.runtime.getURL("images/voce-realmente-quer.png"), "sticker realmente");
+// insertSticker(chrome.runtime.getURL("images/ultima-chance.png"), "sticker chance");
 
 
 function insertSticker(path, className) {
@@ -64,4 +87,11 @@ function insertSticker(path, className) {
     imgTag.setAttribute("src", path);
     imgTag.setAttribute("class", className);
     lightbox.appendChild(imgTag)
+}
+
+for (let s = 0; s < stickers.length; s++) {
+    setTimeout(function motionTimer() {
+        insertSticker(chrome.runtime.getURL(stickers[s]), ("sticker " + classes[s]));
+        console.log(1)
+    }, s * 3000);
 }
