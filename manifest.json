@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Para e Pensa",
-  "version": "1.1",
+  "version": "1.0",
   "web_accessible_resources": [
     {
       "resources": [
@@ -15,11 +15,31 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.mercadolivre.com.br/*",
-        "https://produto.mercadolivre.com.br/*"
+        "https://*.mercadolivre.com.br/*"
       ],
       "css": ["main.css"],
-      "js": ["main.js"]
+      "js": ["ml-main.js"]
+    },
+    {
+      "matches": [
+        "https://www.amazon.com.br/*"
+      ],
+      "css": ["main.css"],
+      "js": ["amz-main.js"]
+    },
+    {
+      "matches": [
+        "https://shopee.com.br/*"
+      ],
+      "css": ["main.css"],
+      "js": ["shp-main.js"]
+    },
+    {
+      "matches": [
+        "https://*.ebay.com/*"
+      ],
+      "css": ["ebay-main.css"],
+      "js": ["ebay-main.js"]
     }
   ]
 }
