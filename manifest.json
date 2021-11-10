@@ -40,6 +40,13 @@
       ],
       "css": ["ebay-main.css"],
       "js": ["ebay-main.js"]
+    },
+    {
+      "matches": [
+        "https://www.magazineluiza.com.br/*"
+      ],
+      "css": ["main.css"],
+      "js": ["mglu-main.js"]
     }
   ]
 }
